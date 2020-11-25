@@ -54,6 +54,24 @@ namespace WebApplication2.Migrations
                     b.ToTable("Model");
                 });
 
+            modelBuilder.Entity("WebApplication2.Models.User", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("WebApplication2.Models.Model", b =>
                 {
                     b.HasOne("WebApplication2.Models.Make", "Make")

@@ -10,8 +10,8 @@ using WebApplication2.Context;
 namespace WebApplication2.Migrations
 {
     [DbContext(typeof(TestAppContext))]
-    [Migration("20201124030154_AddMakeTable")]
-    partial class AddMakeTable
+    [Migration("20201124205832_InitialModel")]
+    partial class InitialModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,6 +54,24 @@ namespace WebApplication2.Migrations
                     b.HasIndex("MakeId");
 
                     b.ToTable("Model");
+                });
+
+            modelBuilder.Entity("WebApplication2.Models.User", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("WebApplication2.Models.Model", b =>

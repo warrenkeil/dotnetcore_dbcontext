@@ -20,5 +20,8 @@ namespace WebApplication2.Context
 
 
         public DbSet<Make> Makes { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
     }
 }
